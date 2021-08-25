@@ -1,0 +1,15 @@
+<div class="column">
+    <h1>shopping list</h1>
+    <ul>
+        <li  (click)="selected = item; onSelect(selected)" *ngFor= 'let item of lists'> 
+        <div class = 'item-cont'routerLink= '/lists/{{item.id}}' routerLinkActive="on">
+        <img src="../../assets/reorder icon (1).png">
+        <span>{{item.name}}</span>
+        </div>
+        
+        <button #del id='del' (click)= 'delete(item)'>X</button>
+        </li> 
+    </ul>
+    <input #name type="text" (keyup.enter)="addMainList(name.value); name.value=''" placeholder="New shopping list">
+    <button type="button" (click)="addMainList(name.value); name.value=''" >Create new list</button> 
+</div>
